@@ -231,11 +231,11 @@ public class Task_6_Tests {
         double p = P / 2;
         double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         return triangle.getA() == a
-            && triangle.getB() == b
-            && triangle.getC() == c
-            && triangle.isValid() == (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a)
-            && triangle.isValid() ? Math.abs(triangle.square() - s) < .00001 : triangle.square() == -1
-            && triangle.isValid() ? Math.abs(triangle.perimeter() - P) < .00001 : triangle.perimeter() == -1;
+                && triangle.getB() == b
+                && triangle.getC() == c
+                && triangle.isValid() == (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a)
+                && triangle.isValid() ? Math.abs(triangle.square() - s) < .00001 : triangle.square() == -1
+                && triangle.isValid() ? Math.abs(triangle.perimeter() - P) < .00001 : triangle.perimeter() == -1;
     }
 
     private static boolean testTask1(StringBuilder protocol) {
@@ -253,11 +253,11 @@ public class Task_6_Tests {
 
     private static boolean testTask1Functionality(StringBuilder protocol) {
         boolean[] results = new boolean[]{
-            testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2),
-            testObject1(new BattleUnit(5, -2, 10, 0, 0), 5, -2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 4),
-            testObject1(new BattleUnit(5, 2, -10, 0, 0), 5, 2, -10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2),
-            testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(1, 2, 10, 0, 0), 0),
-            testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2)
+                testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2),
+                testObject1(new BattleUnit(5, -2, 10, 0, 0), 5, -2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 4),
+                testObject1(new BattleUnit(5, 2, -10, 0, 0), 5, 2, -10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2),
+                testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(1, 2, 10, 0, 0), 0),
+                testObject1(new BattleUnit(5, 2, 10, 0, 0), 5, 2, 10, 0, 0, new BattleUnit(4, 2, 10, 0, 0), 2)
         };
         boolean res = true;
         for(int i = 0; i < results.length; ++i) {
@@ -272,50 +272,50 @@ public class Task_6_Tests {
     }
 
     private static boolean testObject1(
-        BattleUnit battleUnit, int strength, int armor, int health, int x, int y, BattleUnit enemy, int validDamage
+            BattleUnit battleUnit, int strength, int armor, int health, int x, int y, BattleUnit enemy, int validDamage
     ) {
         boolean r1 = battleUnit.getArmor() == armor
-            && battleUnit.isAlive() == (health > 0)
-            && battleUnit.getStrength() == strength
-            && battleUnit.getX() == x
-            && battleUnit.getY() == y
-            && battleUnit.getHealth() == health;
+                && battleUnit.isAlive() == (health > 0)
+                && battleUnit.getStrength() == strength
+                && battleUnit.getX() == x
+                && battleUnit.getY() == y
+                && battleUnit.getHealth() == health;
 
         battleUnit.attacked(enemy);
         boolean r2 = battleUnit.getArmor() == armor
-            && battleUnit.isAlive() == (health - validDamage > 0)
-            && battleUnit.getStrength() == strength
-            && battleUnit.getX() == x
-            && battleUnit.getY() == y
-            && battleUnit.getHealth() == health - validDamage;
+                && battleUnit.isAlive() == (health - validDamage > 0)
+                && battleUnit.getStrength() == strength
+                && battleUnit.getX() == x
+                && battleUnit.getY() == y
+                && battleUnit.getHealth() == health - validDamage;
 
         battleUnit.attacked(enemy);
         battleUnit.attacked(enemy);
         boolean r3 = battleUnit.getArmor() == armor
-            && battleUnit.isAlive() == (health - 3 * validDamage > 0)
-            && battleUnit.getStrength() == strength
-            && battleUnit.getX() == x
-            && battleUnit.getY() == y
-            && battleUnit.getHealth() == health - 3 * validDamage;
+                && battleUnit.isAlive() == (health - 3 * validDamage > 0)
+                && battleUnit.getStrength() == strength
+                && battleUnit.getX() == x
+                && battleUnit.getY() == y
+                && battleUnit.getHealth() == health - 3 * validDamage;
         battleUnit.moveUp();
         battleUnit.moveLeft();
         boolean r4 = battleUnit.getArmor() == armor
-            && battleUnit.isAlive() == (health - 3 * validDamage > 0)
-            && battleUnit.getStrength() == strength
-            && battleUnit.getX() == x - 1
-            && battleUnit.getY() == y - 1
-            && battleUnit.getHealth() == health - 3 * validDamage;
+                && battleUnit.isAlive() == (health - 3 * validDamage > 0)
+                && battleUnit.getStrength() == strength
+                && battleUnit.getX() == x - 1
+                && battleUnit.getY() == y - 1
+                && battleUnit.getHealth() == health - 3 * validDamage;
         battleUnit.moveDown();
         battleUnit.moveDown();
         battleUnit.moveRight();
         battleUnit.moveRight();
 
         boolean r5 = battleUnit.getArmor() == armor
-            && battleUnit.isAlive() == (health - 3 * validDamage > 0)
-            && battleUnit.getStrength() == strength
-            && battleUnit.getX() == x + 1
-            && battleUnit.getY() == y + 1
-            && battleUnit.getHealth() == health - 3 * validDamage;
+                && battleUnit.isAlive() == (health - 3 * validDamage > 0)
+                && battleUnit.getStrength() == strength
+                && battleUnit.getX() == x + 1
+                && battleUnit.getY() == y + 1
+                && battleUnit.getHealth() == health - 3 * validDamage;
 
         return r1 && r2 && r3 && r4 && r5;
     }
@@ -341,10 +341,10 @@ public class Task_6_Tests {
         args_2.put("account", "guest");
 
         boolean[] results = new boolean[]{
-            testObject2(new WebAddressParser("dfgvslksdfmvsdkg"), "", "", "", false, "", "", "", new HashMap<>(), ""),
-            testObject2(new WebAddressParser("https://ru.wikipedia.org/wiki/URL#Структура_URL"), "", "", "https", true, "ru.wikipedia.org", "", "wiki/URL", new HashMap<>(), "Структура_URL"),
-            testObject2(new WebAddressParser("ftp://user:pass@test.ru:8000/data/noname?access=private&link=global"), "user", "pass", "ftp", true, "test.ru", "8000", "data/noname", args_1, ""),
-            testObject2(new WebAddressParser("http://my_site.local.com:8888/public?account=guest#Manual"), "", "", "http", true, "my_site.local.com", "8888", "public", args_2, "Manual")
+                testObject2(new WebAddressParser("dfgvslksdfmvsdkg"), "", "", "", false, "", "", "", new HashMap<>(), ""),
+                testObject2(new WebAddressParser("https://ru.wikipedia.org/wiki/URL#Структура_URL"), "", "", "https", true, "ru.wikipedia.org", "", "wiki/URL", new HashMap<>(), "Структура_URL"),
+                testObject2(new WebAddressParser("ftp://user:pass@test.ru:8000/data/noname?access=private&link=global"), "user", "pass", "ftp", true, "test.ru", "8000", "data/noname", args_1, ""),
+                testObject2(new WebAddressParser("http://my_site.local.com:8888/public?account=guest#Manual"), "", "", "http", true, "my_site.local.com", "8888", "public", args_2, "Manual")
         };
         boolean res = true;
         for(int i = 0; i < results.length; ++i) {
@@ -359,26 +359,26 @@ public class Task_6_Tests {
     }
 
     private static boolean testObject2(
-        WebAddressParser webAddressParser,
-        String login,
-        String password,
-        String scheme,
-        boolean valid,
-        String host,
-        String port,
-        String url,
-        HashMap<String, String> params,
-        String fragment
+            WebAddressParser webAddressParser,
+            String login,
+            String password,
+            String scheme,
+            boolean valid,
+            String host,
+            String port,
+            String url,
+            HashMap<String, String> params,
+            String fragment
     ) {
         return webAddressParser.isValid() == valid
-            && webAddressParser.getFragment().equals(fragment)
-            && webAddressParser.getHost().equals(host)
-            && webAddressParser.getPassword().equals(password)
-            && webAddressParser.getLogin().equals(login)
-            && webAddressParser.getScheme().equals(scheme)
-            && webAddressParser.getUrl().equals(url)
-            && webAddressParser.getPort().equals(port)
-            && mapIsEquals(params, webAddressParser.getParameters());
+                && webAddressParser.getFragment().equals(fragment)
+                && webAddressParser.getHost().equals(host)
+                && webAddressParser.getPassword().equals(password)
+                && webAddressParser.getLogin().equals(login)
+                && webAddressParser.getScheme().equals(scheme)
+                && webAddressParser.getUrl().equals(url)
+                && webAddressParser.getPort().equals(port)
+                && mapIsEquals(params, webAddressParser.getParameters());
     }
 
     private static boolean mapIsEquals(HashMap<String, String> map1, HashMap<String, String> map2) {
