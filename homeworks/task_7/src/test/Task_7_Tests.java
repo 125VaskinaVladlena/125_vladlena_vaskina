@@ -76,30 +76,30 @@ public class Task_7_Tests {
     }
 
     private static final String[] st_1_publicMethods = {
-        "values",
-        "valueOf",
-        "move"
+            "values",
+            "valueOf",
+            "move"
     };
     private static final String[] st_1_publicFields = {
-        "North",
-        "West",
-        "South",
-        "East"
+            "North",
+            "West",
+            "South",
+            "East"
     };
 
     private static final String[] st_2_publicMethods = {
-        "values",
-        "valueOf",
-        "strength",
-        "health",
-        "dexterity",
+            "values",
+            "valueOf",
+            "strength",
+            "health",
+            "dexterity",
     };
     private static final String[] st_2_publicFields = {
-        "Orc",
-        "Elf",
-        "Dwarf",
-        "Halfling",
-        "Human"
+            "Orc",
+            "Elf",
+            "Dwarf",
+            "Halfling",
+            "Human"
     };
 
     private static boolean ConstructorExist(Constructor<?> constructor, String[][] publicConstructorArguments) {
@@ -132,14 +132,14 @@ public class Task_7_Tests {
                 )
         );
         boolean r3 = Arrays.stream(fields).allMatch(
-            field -> Arrays.stream(publicFields).anyMatch(
-                st_1_field -> st_1_field.equals(field.getName())
-            ) || Modifier.isPrivate(field.getModifiers())
+                field -> Arrays.stream(publicFields).anyMatch(
+                        st_1_field -> st_1_field.equals(field.getName())
+                ) || Modifier.isPrivate(field.getModifiers())
         );
         boolean r4 = Arrays.stream(publicFields).allMatch(
-            st_1_field -> Arrays.stream(fields).anyMatch(
-                field -> st_1_field.equals(field.getName()) && Modifier.isPublic(field.getModifiers())
-            )
+                st_1_field -> Arrays.stream(fields).anyMatch(
+                        field -> st_1_field.equals(field.getName()) && Modifier.isPublic(field.getModifiers())
+                )
         );
 
         if(!r1)
@@ -156,10 +156,10 @@ public class Task_7_Tests {
 
     private static boolean testTask0(StringBuilder protocol) {
         var rClass = checkClass(
-            protocol,
-            task_7.subtask_1_EnumProgramming(),
-            st_1_publicMethods,
-            st_1_publicFields
+                protocol,
+                task_7.subtask_1_EnumProgramming(),
+                st_1_publicMethods,
+                st_1_publicFields
         );
         boolean rTests = testTask0Functionality(protocol);
 
@@ -200,10 +200,10 @@ public class Task_7_Tests {
 
     private static boolean testTask1(StringBuilder protocol) {
         var rClass = checkClass(
-            protocol,
-            task_7.subtask_2_EnumProgramming(),
-            st_2_publicMethods,
-            st_2_publicFields
+                protocol,
+                task_7.subtask_2_EnumProgramming(),
+                st_2_publicMethods,
+                st_2_publicFields
         );
         boolean rTests = testTask1Functionality(protocol);
 
@@ -212,11 +212,11 @@ public class Task_7_Tests {
 
     private static boolean testTask1Functionality(StringBuilder protocol) {
         boolean[] results = new boolean[]{
-            testObject1(Race.Dwarf),
-            testObject1(Race.Elf),
-            testObject1(Race.Orc),
-            testObject1(Race.Halfling),
-            testObject1(Race.Human)
+                testObject1(Race.Dwarf),
+                testObject1(Race.Elf),
+                testObject1(Race.Orc),
+                testObject1(Race.Halfling),
+                testObject1(Race.Human)
         };
         boolean res = true;
         for(int i = 0; i < results.length; ++i) {
